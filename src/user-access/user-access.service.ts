@@ -14,7 +14,11 @@ export class UserAccessService {
     @InjectRepository(UserAccess) private userAccessRepository: Repository<UserAccess>,
   ){}
 
-  
+  /**
+   * This method is to update user access if featureName and email exists, otherwise create a new one
+   * @param createUserAccessInput 
+   * @returns UserAccess
+   */
   async createUserAccess(createUserAccessInput: CreateUserAccessInput): Promise<UserAccess> {
     const { featureName, email, enable } = createUserAccessInput;
     let userAccess: UserAccess = await this.userAccessRepository.findOne({featureName, email});
@@ -33,6 +37,12 @@ export class UserAccessService {
     return this.userAccessRepository.save(userAccess);
   }
 
+  /**
+   * This method is to access the userAccess and return canAccess: true if the user can access the specified featureName 
+   * otherwise canAccess: false
+   * @param getUserAccessFilterInput 
+   * @returns GetUserAccessFilterOutput
+   */
   async getUserAccess(getUserAccessFilterInput: GetUserAccessFilterInput): Promise<GetUserAccessFilterOutput> {
     const { email, featureName } = getUserAccessFilterInput;
     let getUserAccessFilterOutput: GetUserAccessFilterOutput = new GetUserAccessFilterOutput();
