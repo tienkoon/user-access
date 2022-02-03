@@ -21,6 +21,8 @@ export class UserAccessService {
    */
   async createUserAccess(createUserAccessInput: CreateUserAccessInput): Promise<UserAccess> {
     const { featureName, email, enable } = createUserAccessInput;
+    
+    // checks for exisiting featureName, email pair
     let userAccess: UserAccess = await this.userAccessRepository.findOne({featureName, email});
     if(isEmpty( userAccess )){
       userAccess = this.userAccessRepository.create({
