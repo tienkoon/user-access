@@ -9,7 +9,7 @@ import { UserAccessModule } from './user-access/user-access.module';
     UserAccessModule,
     TypeOrmModule.forRoot({
       type: 'mongodb',
-      url: 'mongodb://localhost/user_access',
+      url: 'mongodb://localhost:27017/user_access',
       synchronize: true,
       useUnifiedTopology: true,
       entities: [

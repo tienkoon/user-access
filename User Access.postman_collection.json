@@ -1,0 +1,67 @@
+{
+	"info": {
+		"_postman_id": "80424698-cf69-4c65-bd5e-984b90f4310f",
+		"name": "User Access",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get User Access",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/user-access/feature?email=john.doe@example.com&featureName=report",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user-access",
+						"feature"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "john.doe@example.com"
+						},
+						{
+							"key": "featureName",
+							"value": "report"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create/Update User Access",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"featureName\": \"report\",\r\n    \"email\": \"john.doe@example.com\",\r\n    \"enable\": \"true\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user-access",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user-access"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
